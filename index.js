@@ -17,7 +17,7 @@ client.on("message", async message => {
   const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
   const command = args.shift().toLowerCase();
 //=================================================================================\\
-  if(command === "github"){
+  if(command === "github") {
     message.channel.send({embed: {
       color: 5784356,
       author: {
@@ -26,28 +26,34 @@ client.on("message", async message => {
       },
       title: "Click Here For The Link",
       url: "https://github.com/AceEllysium/discord-bot",
-      description: "\u200b"}});}
+      description: "\u200b"}});
+  }
 //===================================================================================\\
-  if(command === 'test'){
-    message.channel.send('succes')}
+  if(command === 'test') {
+    message.channel.send('succes')
+  }
 //=====================================================================================\\
-    if(command === "hello") {
-    message.channel.send('Heyaa');}
+  if(command === "hello") {
+    message.channel.send('Heyaa');
+  }
 //======================================================================================\\
-    if(command === "ping") {
+  if(command === "ping") {
     const m = await message.channel.send("Ping?");
-    m.edit(`Pong! Latency is ${m.createdTimestamp - message.createdTimestamp}ms. API Latency is ${Math.round(client.ping)}ms`);}
+    m.edit(`Pong! Latency is ${m.createdTimestamp - message.createdTimestamp}ms. API Latency is ${Math.round(client.ping)}ms`);
+  }
 //=======================================================================================\\
-  if(command === 'slap'){
-    message.channel.send('I Will Never Slap U :heart: http://lykosapi.cuddliness.xyz/images/hugs/avatar_2e200498fcdf_128.jpg')}
+  if(command === 'slap') {
+    message.channel.send('I Will Never Slap U :heart: http://lykosapi.cuddliness.xyz/images/hugs/avatar_2e200498fcdf_128.jpg')
+  }
 //=======================================================================================\\
-    if(command === "feel") {
-  var x = Math.floor((Math.random() * 2) + 1);
-  if(x===1){
-message.channel.send("I Feel Good");
-  } else
-    {message.channel.send("I Feel Not So Good")}
+  if(command === "feel") {
+    var x = Math.floor((Math.random() * 2) + 1);
+    if(x===1) {
+      message.channel.send("I Feel Good");
+    } else {
+      message.channel.send("I Feel Not So Good")
     }
+  }
 //=======================================================================================\\    
 if(command === "purge") {
   // This command removes all messages from all users in the channel, up to 100.
@@ -78,7 +84,8 @@ if (command === "help") {
     .addField("!ahello", "Responds With heyaa");
 
   message.author.sendEmbed(embed);
-  message.channel.sendMessage(`${message.author}, I Send U A Private Message ~~Pls Tell Nobody OwO~~`)}
+  message.channel.sendMessage(`${message.author}, I Send U A Private Message ~~Pls Tell Nobody OwO~~`);
+}
 //=======================================================================================\\         
-        
-client.login(config.token);})
+});        
+client.login(config.token);
