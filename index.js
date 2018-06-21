@@ -1,11 +1,12 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
 const config = require("./config.json");
+const p = config.prefix;
 
 client.on("ready", () => {
   console.log(`Bot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`); 
 
-  client.user.setGame(name = 'New Code, New Change', url = 'https://www.twitch.tv/giovanniv25', type = 1)
+  client.user.setGame(name = '!a help', url = 'https://www.twitch.tv/giovanniv25', type = 1)
   client.user.setStatus('idle')
 });
 
@@ -18,7 +19,7 @@ client.on("message", async message => {
 //=================================================================================\\
   if(command === "github"){
     message.channel.send({embed: {
-      color: 3447003,
+      color: 5784356,
       author: {
         name: client.user.username,
         icon_url: client.user.avatarURL
@@ -50,7 +51,7 @@ message.channel.send("I Feel Good");
 //=======================================================================================\\    
 if(command === "purge") {
   // This command removes all messages from all users in the channel, up to 100.
-  
+
   // get the delete count, as an actual number.
   const deleteCount = parseInt(args[0], 10);
   
@@ -64,43 +65,20 @@ if(command === "purge") {
     .catch(error => message.reply(`Couldn't delete messages because of: ${error}`));
 }
 //=====================================================================================\\
-if(command === "help") {message.reply("Here U Go");
-    message.channel.send({embed: {
-        color: 3447003,
-        description: "Commands",
-        fields: [{
-            name: "!a help",
-            value: "This Menu"
-          },
-          {
-            name: "!a ping",
-            value: "Pong!"
-          },
-          {
-            name: '!a test',
-            value: 'Respond With Succes'
-          },
-          {
-            name: '!a feel',
-            value: 'Shows The Bot Feeling'
-          },
-          {
-            name: "!a github",
-            value: "Gives The GitHub Link"
-          },
-          {
-            name: "!a slap",
-            value: "It Slaps U(Or Not)"
-          },
-          {
-            name: "!a hello",
-            value: "Responds With heyaa"
-          },
+if (command === "help") {
+  const embed = new Discord.RichEmbed()
+    .setAuthor("Help Page", client.user.avatarURL)
+    .setColor([136, 78, 160])
+    .addField("!ahelp", "This Menu")
+    .addField("!aping", "Pong!")
+    .addField("!atest", "Respond With Success")
+    .addField("!afeel", "Hows The Bot Feeling")
+    .addField("!agithub", "Gives The GitHub Link")
+    .addField("!aslap", "Slaps U(Or Not)")
+    .addField("!ahello", "Responds With heyaa");
+
+  message.author.sendEmbed(embed);
+  message.channel.sendMessage(`${message.author}, I Send U A Private Message ~~Pls Tell Nobody OwO~~`)}
 //=======================================================================================\\         
-        ],
-      }})};
-
-
-
-})
-client.login(config.token);
+        
+client.login(config.token);})
